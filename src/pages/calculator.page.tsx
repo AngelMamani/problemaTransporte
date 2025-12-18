@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Container } from '../components/layout/container.layout';
 import { BackButton } from '../components/navigation/back-button.component';
 import { ProblemConfig } from '../components/transport/problem-config.component';

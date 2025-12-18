@@ -75,6 +75,7 @@ export function HomePage() {
   }, [supplies, demands, costs]);
 
   const canSolve = supplies.some(s => s > 0) && demands.some(d => d > 0);
+  const showMatrix = numOrigins > 0 && numDestinations > 0;
 
   return (
     <Container>
@@ -109,6 +110,7 @@ export function HomePage() {
             numOrigins={numOrigins}
             numDestinations={numDestinations}
             onCostsChange={handleCostsChange}
+            showMatrix={showMatrix}
           />
           
           <SolveButton

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import type { ProblemInput } from '../../types';
-import { DEFAULT_ORIGINS, DEFAULT_DESTINATIONS, MIN_ORIGINS, MIN_DESTINATIONS, MAX_ORIGINS, MAX_DESTINATIONS } from '../../constants';
+import { MIN_ORIGINS, MIN_DESTINATIONS, MAX_ORIGINS, MAX_DESTINATIONS } from '../../constants';
 import './problem-config.component.css';
 
 interface ProblemConfigProps {

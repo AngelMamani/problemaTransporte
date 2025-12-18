@@ -287,8 +287,12 @@ export function solveVogel(problem: TransportProblem): TransportSolution {
 
     // Guardar el estado de filas/columnas activas ANTES de la asignación para la descripción
     // (Estas variables se usarán para mostrar cómo estaban las cosas antes de hacer la asignación)
-    const activeRowsBefore = remainingSupplies.map((val, idx) => idx === row ? (suppliesBefore[idx] > 0.01) : activeRows[idx]);
-    const activeColsBefore = remainingDemands.map((val, idx) => idx === col ? (demandsBefore[idx] > 0.01) : activeCols[idx]);
+    const activeRowsBefore = activeRows.map((isActive, idx) =>
+      idx === row ? suppliesBefore[idx] > 0.01 : isActive
+    );
+    const activeColsBefore = activeCols.map((isActive, idx) =>
+      idx === col ? demandsBefore[idx] > 0.01 : isActive
+    );
 
     // Calcular penalizaciones siempre para la descripción
     const rowPenaltiesForDesc = computeRowPenalties(
@@ -466,9 +470,9 @@ export function solveVogel(problem: TransportProblem): TransportSolution {
       description += `   📍 Ubicación: ${chosenPenalty.isRow ? `FILA ${chosenPenalty.index + 1}` : `COLUMNA ${chosenPenalty.index + 1}`}\n`;
       description += `   💡 Razón: Mayor penalización significa mayor costo de oportunidad\n`;
       if (allPenaltiesForDesc.length > 1) {
-        const allPenaltiesSorted = [...allPenaltiesForDesc].sort((a, b) => b.penalty - a.penalty);
-        if (allPenaltiesSorted.length > 1 && allPenaltiesSorted[0].penalty === allPenaltiesSorted[1].penalty) {
-          description += `   ⚠ NOTA: Hay empate con otra penalización de ${allPenaltiesSorted[1].penalty.toFixed(2)}. Se elige arbitrariamente.\n`;
+        const allPenaltiesSortedForTie = [...allPenaltiesForDesc].sort((a, b) => b.penalty - a.penalty);
+        if (allPenaltiesSortedForTie.length > 1 && allPenaltiesSortedForTie[0].penalty === allPenaltiesSortedForTie[1].penalty) {
+          description += `   ⚠ NOTA: Hay empate con otra penalización de ${allPenaltiesSortedForTie[1].penalty.toFixed(2)}. Se elige arbitrariamente.\n`;
         }
       }
       description += `\n`;
@@ -488,7 +492,7 @@ export function solveVogel(problem: TransportProblem): TransportSolution {
         }
         rowCosts.sort((a, b) => a.cost - b.cost);
         description += `   Costos disponibles en la fila ${chosenPenalty.index + 1}:\n`;
-        rowCosts.forEach((c, idx) => {
+        rowCosts.forEach((c) => {
           const isSelected = c.col === col;
           const marker = isSelected ? '👉 ' : '   ';
           description += `   ${marker}Celda (${chosenPenalty.index + 1}, ${c.col + 1}): costo = ${c.cost.toFixed(2)}${isSelected ? ' ⭐ (SELECCIONADA - MENOR COSTO)' : ''}\n`;
@@ -503,7 +507,7 @@ export function solveVogel(problem: TransportProblem): TransportSolution {
         }
         colCosts.sort((a, b) => a.cost - b.cost);
         description += `   Costos disponibles en la columna ${chosenPenalty.index + 1}:\n`;
-        colCosts.forEach((c, idx) => {
+        colCosts.forEach((c) => {
           const isSelected = c.row === row;
           const marker = isSelected ? '👉 ' : '   ';
           description += `   ${marker}Celda (${c.row + 1}, ${chosenPenalty.index + 1}): costo = ${c.cost.toFixed(2)}${isSelected ? ' ⭐ (SELECCIONADA - MENOR COSTO)' : ''}\n`;

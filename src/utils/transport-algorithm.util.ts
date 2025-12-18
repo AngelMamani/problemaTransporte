@@ -1,4 +1,4 @@
-import type { TransportProblem, TransportSolution, Allocation } from '../types/transport.types';
+import type { TransportProblem, TransportSolution } from '../types/transport.types';
 
 export function isBalanced(problem: TransportProblem): boolean {
   const totalSupply = problem.supplies.reduce((sum, val) => sum + val, 0);
