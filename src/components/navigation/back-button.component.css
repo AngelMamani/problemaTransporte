@@ -1,0 +1,23 @@
+.back-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1em;
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-lg);
+}
+
+.back-button:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateX(-4px);
+}
+
+.back-button:active {
+  transform: translateX(0);
+}
+
