@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Container } from '../components/layout/container.layout';
 import { BackButton } from '../components/navigation/back-button.component';
 import { ProblemConfig } from '../components/transport/problem-config.component';
@@ -15,6 +16,14 @@ import { DEFAULT_ORIGINS, DEFAULT_DESTINATIONS } from '../constants';
 import './calculator.page.css';
 
 export function CalculatorPage() {
+  const [searchParams] = useSearchParams();
+  const initialMethodParam = searchParams.get('method');
+  const initialMethod = (initialMethodParam === 'assignment' ||
+    initialMethodParam === 'northwest' ||
+    initialMethodParam === 'minimum-cost' ||
+    initialMethodParam === 'vogel')
+    ? (initialMethodParam as SolutionMethod)
+    : 'northwest';
   const [numOrigins, setNumOrigins] = useState(DEFAULT_ORIGINS);
   const [numDestinations, setNumDestinations] = useState(DEFAULT_DESTINATIONS);
   const [supplies, setSupplies] = useState<number[]>(Array(DEFAULT_ORIGINS).fill(0));
@@ -24,7 +33,7 @@ export function CalculatorPage() {
   );
   const [solution, setSolution] = useState<TransportSolution | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedMethod, setSelectedMethod] = useState<SolutionMethod>('northwest');
+  const [selectedMethod, setSelectedMethod] = useState<SolutionMethod>(initialMethod);
 
   const totalSupply = useMemo(() => supplies.reduce((sum, val) => sum + val, 0), [supplies]);
   const totalDemand = useMemo(() => demands.reduce((sum, val) => sum + val, 0), [demands]);
