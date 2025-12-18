@@ -1,6 +1,6 @@
 import './method-selector.component.css';
 
-export type SolutionMethod = 'northwest' | 'minimum-cost' | 'vogel';
+export type SolutionMethod = 'northwest' | 'minimum-cost' | 'vogel' | 'assignment';
 
 interface MethodSelectorProps {
   selectedMethod: SolutionMethod;
@@ -47,8 +47,19 @@ export function MethodSelector({ selectedMethod, onMethodChange }: MethodSelecto
           />
           <span className="method-selector__label">Vogel</span>
         </label>
+
+        <label className="method-selector__option">
+          <input
+            type="radio"
+            name="solution-method"
+            value="assignment"
+            checked={selectedMethod === 'assignment'}
+            onChange={(e) => onMethodChange(e.target.value as SolutionMethod)}
+            className="method-selector__input"
+          />
+          <span className="method-selector__label">Método de Asignación</span>
+        </label>
       </div>
     </div>
   );
 }
-

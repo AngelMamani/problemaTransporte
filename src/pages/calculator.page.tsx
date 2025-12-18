@@ -9,7 +9,7 @@ import { BalanceIndicator } from '../components/transport/balance-indicator.comp
 import { MethodSelector, type SolutionMethod } from '../components/transport/method-selector.component';
 import { SolveButton } from '../components/transport/solve-button.component';
 import { ResultsDisplay } from '../components/transport/results-display.component';
-import { solveNorthwestCorner, solveMinimumCost, solveVogel } from '../utils';
+import { solveNorthwestCorner, solveMinimumCost, solveVogel, solveAssignment } from '../utils';
 import type { TransportProblem, TransportSolution } from '../types';
 import { DEFAULT_ORIGINS, DEFAULT_DESTINATIONS } from '../constants';
 import './calculator.page.css';
@@ -156,6 +156,9 @@ export function CalculatorPage() {
             break;
           case 'vogel':
             result = solveVogel(problem);
+            break;
+          case 'assignment':
+            result = solveAssignment(problem);
             break;
           default:
             result = solveNorthwestCorner(problem);
