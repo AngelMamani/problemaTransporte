@@ -3,3 +3,4 @@ export * from './northwest-corner.util';
 export * from './minimum-cost.util';
 export * from './vogel.util';
 export * from './assignment.util';
+export * from './hungarian.util';

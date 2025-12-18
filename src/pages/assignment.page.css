@@ -1,0 +1,217 @@
+.assignment-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.assignment-page__header {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.assignment-page__subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.1em;
+  margin-top: var(--spacing-sm);
+}
+
+.assignment-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.assignment-section {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.assignment-section__title {
+  font-size: 1.6em;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-xs);
+}
+
+.assignment-section__text {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.assignment-config {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.assignment-config__label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.assignment-config__input {
+  width: 120px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-text-secondary);
+}
+
+.assignment-config__hint {
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+}
+
+.assignment-matrix__wrapper {
+  overflow-x: auto;
+}
+
+.assignment-matrix {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.assignment-matrix th,
+.assignment-matrix td {
+  border: 1px solid var(--color-text-secondary);
+  padding: var(--spacing-xs);
+  text-align: center;
+}
+
+.assignment-matrix__header {
+  background: var(--color-background);
+  font-weight: 600;
+}
+
+.assignment-matrix__row-header {
+  background: var(--color-background);
+  font-weight: 600;
+}
+
+.assignment-matrix__input {
+  width: 80px;
+  padding: var(--spacing-xs);
+  text-align: right;
+}
+
+.assignment-page__solve-button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.1em;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.assignment-page__solve-button:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.assignment-page__solve-button:active {
+  transform: translateY(0);
+}
+
+.assignment-result__summary {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.assignment-result__formula {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.assignment-result__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.assignment-result__table th,
+.assignment-result__table td {
+  border: 1px solid var(--color-text-secondary);
+  padding: var(--spacing-xs);
+  text-align: center;
+}
+
+.assignment-result__table th {
+  background: var(--color-background);
+  font-weight: 600;
+}
+
+.assignment-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.assignment-step__title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+}
+
+.assignment-step__description {
+  white-space: pre-wrap;
+  background: var(--color-background);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-text-secondary);
+  font-family: var(--font-family-monospace, monospace);
+  font-size: 0.95em;
+}
+
+.assignment-step__matrices {
+  margin-top: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.assignment-step__matrix-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.assignment-step__matrix-table {
+  border-collapse: collapse;
+}
+
+.assignment-step__matrix-table td {
+  border: 1px solid var(--color-text-secondary);
+  padding: var(--spacing-xs);
+  text-align: center;
+  min-width: 40px;
+}
+
+.assignment-step__matrix-cell {
+  position: relative;
+}
+
+.assignment-step__matrix-cell--covered-row::after,
+.assignment-step__matrix-cell--covered-col::after,
+.assignment-step__matrix-cell--covered-both::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 2px solid rgba(220, 0, 0, 0.7);
+  transform: translateY(-50%);
+}
+
+.assignment-step__matrix-cell--covered-both {
+  background: rgba(220, 0, 0, 0.08);
+}
+
+

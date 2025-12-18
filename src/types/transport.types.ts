@@ -42,3 +42,19 @@ export interface ProblemInput {
   costs: number[][];
 }
 
+export interface AssignmentProblem {
+  costs: number[][];
+}
+
+export interface AssignmentAssignment {
+  row: number;
+  col: number;
+  cost: number;
+}
+
+export interface AssignmentSolution {
+  assignments: AssignmentAssignment[];
+  totalCost: number;
+  steps?: SolutionStep[];
+}
+

@@ -1,0 +1,286 @@
+.assignment-steps-display {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.assignment-steps-display__title {
+  font-size: 1.3em;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.assignment-steps-display__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.assignment-steps-display__button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-primary, #007bff);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.assignment-steps-display__button:hover:not(:disabled) {
+  background: var(--color-primary-hover, #0056b3);
+}
+
+.assignment-steps-display__button:disabled {
+  background: var(--color-text-secondary, #ccc);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.assignment-steps-display__counter {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 1em;
+  min-width: 150px;
+  text-align: center;
+}
+
+.assignment-steps-display__slider-container {
+  margin-bottom: var(--spacing-md);
+}
+
+.assignment-steps-display__slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-background);
+  outline: none;
+  cursor: pointer;
+}
+
+.assignment-steps-display__slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary, #007bff);
+  cursor: pointer;
+}
+
+.assignment-steps-display__slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary, #007bff);
+  cursor: pointer;
+  border: none;
+}
+
+.assignment-steps-display__step-info {
+  background: rgba(100, 108, 255, 0.1);
+  border-left: 4px solid var(--color-primary, #007bff);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.assignment-steps-display__description {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.9em;
+  line-height: 1.6;
+  white-space: pre-line;
+  font-family: 'Courier New', monospace;
+}
+
+.assignment-steps-display__description-title {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.assignment-steps-display__description-step {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+.assignment-steps-display__description-line {
+  margin-left: 1em;
+  color: var(--color-text);
+}
+
+.assignment-steps-display__matrix-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.assignment-steps-display__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+}
+
+.assignment-steps-display__header-cell {
+  padding: var(--spacing-sm);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid var(--color-text-secondary);
+}
+
+.assignment-steps-display__row-header {
+  padding: var(--spacing-sm);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid var(--color-text-secondary);
+  position: relative;
+}
+
+.assignment-steps-display__row-header--covered::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #f44336;
+  transform: translateY(-50%);
+}
+
+.assignment-steps-display__cell {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-text-secondary);
+  text-align: center;
+  min-width: 80px;
+  position: relative;
+}
+
+.assignment-steps-display__cell--covered-row {
+  background: rgba(244, 67, 54, 0.1);
+  position: relative;
+}
+
+.assignment-steps-display__cell--covered-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 2px solid #f44336;
+  border-bottom: 2px solid #f44336;
+  pointer-events: none;
+}
+
+.assignment-steps-display__cell--covered-col {
+  background: rgba(244, 67, 54, 0.1);
+  position: relative;
+}
+
+.assignment-steps-display__cell--covered-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-left: 2px solid #f44336;
+  border-right: 2px solid #f44336;
+  pointer-events: none;
+}
+
+.assignment-steps-display__cell--covered-both {
+  background: rgba(244, 67, 54, 0.2);
+  position: relative;
+}
+
+.assignment-steps-display__cell--covered-both::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 2px solid #f44336;
+  pointer-events: none;
+}
+
+.assignment-steps-display__cell--assigned {
+  background: rgba(76, 175, 80, 0.2);
+  border: 2px solid #4caf50;
+  font-weight: 700;
+}
+
+.assignment-steps-display__cell--zero {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.assignment-steps-display__cell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.assignment-steps-display__cell-value {
+  font-weight: 600;
+}
+
+.assignment-steps-display__assignment-mark {
+  color: #4caf50;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.assignment-steps-display__steps-list {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-text-secondary);
+}
+
+.assignment-steps-display__list-title {
+  font-size: 1.1em;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.assignment-steps-display__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.assignment-steps-display__step-button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--color-text-secondary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s;
+}
+
+.assignment-steps-display__step-button:hover {
+  background: var(--color-surface-hover, #f5f5f5);
+}
+
+.assignment-steps-display__step-button--active {
+  background: var(--color-primary, #007bff);
+  color: white;
+  border-color: var(--color-primary, #007bff);
+}
+

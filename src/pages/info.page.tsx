@@ -184,14 +184,14 @@ export function InfoPage() {
           </section>
 
           <div className="info-page__actions">
-            <button
+            <button 
               onClick={() => navigate('/calculator')}
               className="info-page__button"
             >
               Ir a la Calculadora
             </button>
             <button
-              onClick={() => navigate('/calculator?method=assignment')}
+              onClick={() => navigate('/assignment')}
               className="info-page__button info-page__button--secondary"
             >
               Método de Asignación
